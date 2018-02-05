@@ -128,7 +128,7 @@ export default class TabViewPagerAndroid<T: *> extends React.Component<
     return (
       <ViewPagerAndroid
         key={navigationState.routes.length}
-        keyboardDismissMode="on-drag"
+        keyboardDismissMode={this.props.keyboardDismissMode || 'on-drag'}
         initialPage={initialPage}
         scrollEnabled={swipeEnabled !== false}
         onPageScroll={this._handlePageScroll}

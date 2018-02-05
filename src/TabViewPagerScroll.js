@@ -131,7 +131,7 @@ export default class TabViewPagerScroll<T: *> extends React.Component<
         horizontal
         pagingEnabled
         directionalLockEnabled
-        keyboardDismissMode="on-drag"
+        keyboardDismissMode={this.props.keyboardDismissMode || 'on-drag'}
         keyboardShouldPersistTaps="always"
         overScrollMode="never"
         scrollEnabled={this.props.swipeEnabled}
