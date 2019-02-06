@@ -93,15 +93,16 @@ export default class TabViewPagerScroll<T: *> extends React.Component<
     );
 
     const nextRoute = this.props.navigationState.routes[nextIndex];
-
-    if (this.props.canJumpToTab(nextRoute)) {
-      this.props.jumpTo(nextRoute.key);
-    } else {
-      global.requestAnimationFrame(() => {
-        this._scrollTo(
-          this.props.navigationState.index * this.props.layout.width
-        );
-      });
+    if(nextRoute) {
+      if (this.props.canJumpToTab(nextRoute)) {
+        this.props.jumpTo(nextRoute.key);
+      } else {
+        global.requestAnimationFrame(() => {
+          this._scrollTo(
+            this.props.navigationState.index * this.props.layout.width
+          );
+        });
+      }
     }
   };
 
